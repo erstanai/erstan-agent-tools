@@ -1,0 +1,70 @@
+name: Release distribution
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: "20"
+      - name: Require the tagged commit on main
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --no-tags origin main:refs/remotes/origin/main
+          if ! git merge-base --is-ancestor "${GITHUB_SHA}" refs/remotes/origin/main; then
+            echo "Release tags must point to a commit already merged into main." >&2
+            exit 1
+          fi
+      - name: Verify distribution and release tag
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        run: npm run verify
+      - name: Build release archives and checksums
+        shell: bash
+        run: |
+          set -euo pipefail
+          version="${GITHUB_REF_NAME#v}"
+          prefix="erstan-agent-tools-${version}/"
+          mkdir -p release
+          git archive --format=tar --prefix="${prefix}" HEAD | gzip -9 > "release/erstan-agent-tools-${version}.tar.gz"
+          git archive --format=zip --prefix="${prefix}" --output="release/erstan-agent-tools-${version}.zip" HEAD
+          cd release
+          sha256sum ./*.tar.gz ./*.zip > SHA256SUMS.txt
+      - name: Create or update GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME}"
+          assets=(release/*.tar.gz release/*.zip release/SHA256SUMS.txt)
+          if gh release view "${tag}" >/dev/null 2>&1; then
+            gh release upload "${tag}" "${assets[@]}" --clobber
+          else
+            flags=()
+            if [[ "${tag}" == *-* ]]; then
+              flags+=(--prerelease)
+            fi
+            gh release create "${tag}" "${assets[@]}" \
+              --verify-tag \
+              --title "Erstan Agent Tools ${tag}" \
+              --generate-notes \
+              "${flags[@]}"
+          fi

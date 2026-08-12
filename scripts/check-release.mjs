@@ -26,6 +26,7 @@ const expectedFiles = new Set([
   ".agents/plugins/marketplace.json",
   ".claude-plugin/marketplace.json",
   ".gitattributes",
+  ".github/workflows/release.yml",
   ".github/workflows/verify.yml",
   ".gitignore",
   "AGENTS.md",
@@ -196,6 +197,12 @@ const mcp = await json("plugins/erstan/.mcp.json");
 
 assert(packageJson.private === true, "package.json must remain private to prevent accidental npm publication");
 assert(versionPattern.test(packageJson.version ?? ""), "package.json must use semantic versioning");
+if (process.env.RELEASE_TAG) {
+  assert(
+    process.env.RELEASE_TAG === `v${packageJson.version}`,
+    `Release tag ${process.env.RELEASE_TAG} must exactly match package version v${packageJson.version}`,
+  );
+}
 assert(codexManifest.name === "erstan", "Codex plugin name must be erstan");
 assert(claudeManifest.name === "erstan", "Claude plugin name must be erstan");
 assert(codexManifest.version === packageJson.version, "Codex plugin version must match package.json");

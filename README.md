@@ -51,16 +51,17 @@ This two-layer model keeps permissions understandable:
 
 ## Install in Codex
 
-After this repository is published to GitHub:
+`erstan@erstan` means `plugin-name@marketplace-name`; it is not an account ID or
+secret.
 
 ```text
 codex plugin marketplace add erstanai/erstan-agent-tools
 codex plugin add erstan@erstan
 ```
 
-Open a new Codex session if needed, connect the `erstan` MCP server when
-prompted, and complete the browser sign-in. The plugin uses the remote server
-configuration in `plugins/erstan/.mcp.json`.
+Open a new Codex session, use `/plugins` to confirm the installation, connect
+the `erstan` MCP server when prompted, and complete browser sign-in. The plugin
+uses the remote server configuration in `plugins/erstan/.mcp.json`.
 
 ## Install in Claude Code
 
@@ -72,6 +73,28 @@ claude plugin install erstan@erstan
 Run `/reload-plugins`, then `/mcp` to connect `erstan` and complete OAuth.
 Claude Code initiates the remote MCP authorization; the plugin does not ask the
 user to paste a bearer token or API key.
+
+## Install in Claude Cowork / Desktop
+
+Open **Customize > Plugins > Browse plugins**, select **Add marketplace**, and
+enter:
+
+```text
+https://github.com/erstanai/erstan-agent-tools
+```
+
+Install **Erstan** and complete browser sign-in when prompted. Plugins are
+available in Claude Cowork and Claude Code, not the standard Claude Chat
+surface.
+
+## Update or remove
+
+Use the host's plugin browser to update, disable, or uninstall Erstan. Removing
+the local plugin does not revoke an existing Erstan OAuth grant. Review or
+revoke grants in **Settings > Connected apps** in Erstan.
+
+Published versions and checksums are available from [GitHub
+Releases](https://github.com/erstanai/erstan-agent-tools/releases).
 
 ## ChatGPT and other hosts
 

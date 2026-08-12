@@ -15,9 +15,28 @@ directories.
 4. Run `npm run verify` and all native validators documented in the README.
 5. Review the exact Git archive. The release checker rejects files outside the
    allowlist and any symlink in the distribution.
-6. Tag the reviewed commit and create the GitHub release.
+6. Merge the reviewed commit to `main`, then push a `v<package-version>` tag on
+   that exact commit. The release workflow verifies the tag and creates the
+   GitHub release and archives automatically.
 7. Test a fresh Codex install and a fresh Claude Code install with a new user,
    OAuth grant, narrow permissions, approval, denial, revocation, and expiry.
+
+## Automated GitHub release
+
+The tag must exactly match the version shared by `package.json`, both plugin
+manifests, and the Claude marketplace entry. For example, version `0.1.0` must
+be released as `v0.1.0`:
+
+```text
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+`.github/workflows/release.yml` then runs the distribution verifier, creates
+ZIP and TAR.GZ archives from the tagged Git tree, writes SHA-256 checksums, and
+creates the GitHub release with generated notes. A mismatched version tag fails
+before any release is published. Re-running the workflow replaces the assets
+on an existing release instead of creating a duplicate.
 
 ## OpenAI / ChatGPT handoff
 
