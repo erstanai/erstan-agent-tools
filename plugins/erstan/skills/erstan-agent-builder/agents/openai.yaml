@@ -1,0 +1,13 @@
+interface:
+  display_name: "Erstan Agent Builder"
+  short_description: "Build and revise Erstan Agent graphs"
+  default_prompt: "Use $erstan-agent-builder to create or safely update this Erstan Agent."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "erstan"
+      description: "Erstan hosted MCP server"
+      transport: "streamable_http"
+      url: "https://api.erstan.com/v1/mcp"
+policy:
+  allow_implicit_invocation: true

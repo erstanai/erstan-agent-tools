@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="512" viewBox="0 0 1024 512" role="img" aria-labelledby="title">
+  <title id="title">Erstan</title>
+  <rect width="1024" height="512" rx="96" fill="#135E73"/>
+  <path d="M104 112h248v70H182v50h146v66H182v54h170v70H104z" fill="#FFFFFF"/>
+  <text x="406" y="326" fill="#FFFFFF" font-family="Arial, Helvetica, sans-serif" font-size="180" font-weight="700">Erstan</text>
+</svg>

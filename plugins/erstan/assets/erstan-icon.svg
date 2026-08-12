@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title">
+  <title id="title">Erstan</title>
+  <rect width="512" height="512" rx="112" fill="#135E73"/>
+  <path d="M128 132h256v72H208v52h152v68H208v56h176v72H128z" fill="#FFFFFF"/>
+</svg>

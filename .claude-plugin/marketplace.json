@@ -1,0 +1,18 @@
+{
+  "name": "erstan",
+  "owner": {
+    "name": "Erstan",
+    "url": "https://signup.erstan.com/"
+  },
+  "description": "Official Erstan plugins for Claude Code.",
+  "plugins": [
+    {
+      "name": "erstan",
+      "displayName": "Erstan",
+      "source": "./plugins/erstan",
+      "description": "Build and review Erstan Agents, operate runs, manage Skills, and work with authorized workspace content.",
+      "version": "0.1.0",
+      "category": "productivity"
+    }
+  ]
+}

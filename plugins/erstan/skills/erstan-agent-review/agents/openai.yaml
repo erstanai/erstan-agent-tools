@@ -1,0 +1,13 @@
+interface:
+  display_name: "Erstan Agent Review"
+  short_description: "Review Erstan agents and diagnose run failures"
+  default_prompt: "Use $erstan-agent-review to inspect this Erstan agent and its latest run, identify evidence-backed issues, and recommend the smallest safe fixes."
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "erstan"
+      description: "Erstan hosted MCP server"
+      transport: "streamable_http"
+      url: "https://api.erstan.com/v1/mcp"
+policy:
+  allow_implicit_invocation: true

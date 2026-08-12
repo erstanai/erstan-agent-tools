@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "erstan",
+  "displayName": "Erstan",
+  "version": "0.1.0",
+  "description": "Build and review Erstan Agents, operate runs, manage Skills, and work with authorized workspace content.",
+  "author": {
+    "name": "Erstan",
+    "url": "https://signup.erstan.com/"
+  },
+  "homepage": "https://docs.erstan.com/developers/connect-coding-agent",
+  "repository": "https://github.com/erstanai/erstan-agent-tools",
+  "license": "Apache-2.0",
+  "keywords": [
+    "agents",
+    "mcp",
+    "workflows",
+    "productivity"
+  ],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json"
+}
