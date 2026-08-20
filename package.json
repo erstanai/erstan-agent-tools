@@ -1,8 +1,8 @@
 {
   "name": "erstan-agent-tools",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "description": "Official Erstan plugin and skills for AI coding agents.",
+  "description": "Official Erstan plugin and skills for building, reviewing, and optimizing Agents and Skills.",
   "type": "module",
   "engines": {
     "node": ">=20.12"

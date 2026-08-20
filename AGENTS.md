@@ -13,6 +13,7 @@ This is a public, allowlisted distribution repository. Keep it small and safe.
 - Do not add `.app.json` without a real registered OpenAI app identifier and a
   deliberate publication review.
 - Put maintainer CLI tools and offline diagnostics in the separate toolkit,
-  never in this plugin.
-- Run `npm run verify`, the Codex plugin validator, all five skill validators,
+  never in this plugin. User-facing optimization belongs here as hosted-MCP
+  Skills, not as npm CLI commands.
+- Run `npm run verify`, the Codex plugin validator, all seven skill validators,
   and `claude plugin validate .` before release.

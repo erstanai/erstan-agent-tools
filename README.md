@@ -2,8 +2,8 @@
 
 Official Erstan integration for AI coding agents. This repository packages one
 broad plugin that connects to Erstan's hosted MCP server and supplies focused
-instructions for building and reviewing Agents, operating runs, managing
-Skills, and working with authorized workspace content.
+instructions for building, reviewing, and optimizing Agents and Skills,
+operating runs, and working with authorized workspace content.
 
 The plugin contains no Erstan API key. Each user signs in to
 `https://api.erstan.com/v1/mcp` with OAuth through their AI host.
@@ -12,13 +12,23 @@ The plugin contains no Erstan API key. Each user signs in to
 
 - `erstan-agent-builder` — create, revise, validate, test, and publish Agent
   graphs.
+- `erstan-agent-optimizer` — retrieve an existing Agent and produce the
+  smallest version-correlated optimization proposal.
 - `erstan-agent-review` — review Agent definitions and diagnose runs from
   durable evidence.
 - `erstan-run-operator` — launch published Agents and safely handle waits,
   approvals, and traces.
 - `erstan-skill-manager` — manage complete, versioned Erstan Skill packages.
+- `erstan-skill-optimizer` — retrieve a complete workspace Skill package and
+  optimize it without losing business rules, files, or action metadata.
 - `erstan-work-manager` — work with authorized tasks, projects, documents,
   folders, and files.
+
+The conceptual `agent:optimize` and `skill:optimize` operations are distributed
+as the `$erstan-agent-optimizer` and `$erstan-skill-optimizer` Skills. They are
+not npm CLI commands. By default they stop at an evidence-backed local proposal
+and validation result; updates, live Agent previews, and publication each
+require separate explicit authorization.
 
 ## Permission model
 
@@ -125,16 +135,17 @@ python C:/Users/<you>/.codex/skills/.system/skill-creator/scripts/quick_validate
 claude plugin validate .
 ```
 
-Run the skill validator once for each directory under
+Run the skill validator once for each of the seven directories under
 `plugins/erstan/skills`. CI runs the repository-owned release verifier; the
 native Codex, Skill, and Claude validators remain required release gates because
 their availability and schemas are owned by their respective hosts.
 
 ## Toolkit separation
 
-This repository is the small, installable end-user distribution. Maintainer
-CLI utilities and offline diagnostic fixtures belong in the separate
-`erstan-agent-toolkit` repository and must not be copied into a plugin release.
+This repository is the small, installable end-user distribution. User-facing
+optimization is implemented here as hosted-MCP Skills. Maintainer CLI utilities
+and offline diagnostic fixtures belong in the separate private toolkit and
+must not be copied into a plugin release.
 
 ## License
 

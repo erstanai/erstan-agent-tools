@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "erstan",
   "displayName": "Erstan",
-  "version": "0.1.0",
-  "description": "Build and review Erstan Agents, operate runs, manage Skills, and work with authorized workspace content.",
+  "version": "0.2.0",
+  "description": "Build, review, and optimize Erstan Agents and Skills, operate runs, and work with authorized workspace content.",
   "author": {
     "name": "Erstan",
     "url": "https://signup.erstan.com/"

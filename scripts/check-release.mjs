@@ -44,6 +44,9 @@ const expectedFiles = new Set([
   "plugins/erstan/skills/erstan-agent-builder/SKILL.md",
   "plugins/erstan/skills/erstan-agent-builder/agents/openai.yaml",
   "plugins/erstan/skills/erstan-agent-builder/references/lifecycle-and-graph.md",
+  "plugins/erstan/skills/erstan-agent-optimizer/SKILL.md",
+  "plugins/erstan/skills/erstan-agent-optimizer/agents/openai.yaml",
+  "plugins/erstan/skills/erstan-agent-optimizer/references/optimization-protocol.md",
   "plugins/erstan/skills/erstan-agent-review/SKILL.md",
   "plugins/erstan/skills/erstan-agent-review/agents/openai.yaml",
   "plugins/erstan/skills/erstan-agent-review/references/agent-checklist.md",
@@ -55,6 +58,9 @@ const expectedFiles = new Set([
   "plugins/erstan/skills/erstan-skill-manager/SKILL.md",
   "plugins/erstan/skills/erstan-skill-manager/agents/openai.yaml",
   "plugins/erstan/skills/erstan-skill-manager/references/package-lifecycle.md",
+  "plugins/erstan/skills/erstan-skill-optimizer/SKILL.md",
+  "plugins/erstan/skills/erstan-skill-optimizer/agents/openai.yaml",
+  "plugins/erstan/skills/erstan-skill-optimizer/references/optimization-protocol.md",
   "plugins/erstan/skills/erstan-work-manager/SKILL.md",
   "plugins/erstan/skills/erstan-work-manager/agents/openai.yaml",
   "plugins/erstan/skills/erstan-work-manager/references/work-tools.md",
@@ -63,9 +69,11 @@ const expectedFiles = new Set([
 
 const expectedSkills = [
   "erstan-agent-builder",
+  "erstan-agent-optimizer",
   "erstan-agent-review",
   "erstan-run-operator",
   "erstan-skill-manager",
+  "erstan-skill-optimizer",
   "erstan-work-manager"
 ];
 
