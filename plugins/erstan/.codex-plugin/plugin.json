@@ -20,7 +20,7 @@
   "interface": {
     "displayName": "Erstan",
     "shortDescription": "Build, review, and optimize work in Erstan",
-    "longDescription": "Use Erstan's hosted MCP server to build, review, and optimize Agents and Skills, operate published runs, and work with authorized tasks, projects, documents, and files.",
+    "longDescription": "Use Erstan's hosted MCP server to build, review, and optimize Agents and Skills, operate published runs, and work with authorized tasks, projects, documents, native Sheets, and files.",
     "developerName": "Erstan",
     "category": "Productivity",
     "capabilities": [

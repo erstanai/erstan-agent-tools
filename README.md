@@ -24,7 +24,7 @@ The plugin contains no Erstan API key. Each user signs in to
 - `erstan-work-manager` — work with complete authorized Task properties,
   selectable relations, subtasks, attachments/references, comments,
   participants, reactions, lifecycle, Task-linked runs/approvals, projects,
-  documents, folders, and files.
+  documents, native Sheets, folders, and files.
 
 The conceptual `agent:optimize` and `skill:optimize` operations are distributed
 as the `$erstan-agent-optimizer` and `$erstan-skill-optimizer` Skills. They are
@@ -41,10 +41,12 @@ allowlists, and Erstan-side approval policy in **Settings > Connected apps**.
 Initial authorization defaults to the recommended **Build** profile. It includes
 **View agents**, **Build agents**, **Run agents**, **Publish agents**, and
 the read-only **View runs**, **View work**, **View documents**, and **View
-files** permissions. It does not permit task, document, or file writes. Use
+  files**, and **View sheets** permissions. It does not permit task, document,
+  Sheet, or file writes. Use
 **Review** for read-only access. For writes, use **Custom** with the applicable
-**Manage work**, **Edit documents**, or **Edit files** permission, or choose
-**Full access**. **Manage work** includes Task updates, structured attachments,
+**Manage work**, **Edit documents**, **Edit sheets**, or **Edit files**
+permission, or choose **Full access**. **Manage work** includes Task updates,
+structured attachments,
 and Task-linked run replies/approval decisions. **View work** includes runs and
 traces reached through an exact visible Task relationship; those Task paths do
 not also require **View runs** or **Run agents**. Retrieving Team-file bytes
