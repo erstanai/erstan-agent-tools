@@ -1,6 +1,6 @@
 {
   "name": "erstan-agent-tools",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "private": true,
   "description": "Official Erstan plugin and skills for building, reviewing, and optimizing Agents and Skills.",
   "type": "module",
