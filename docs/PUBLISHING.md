@@ -21,6 +21,33 @@ directories.
 7. Test a fresh Codex install and a fresh Claude Code install with a new user,
    OAuth grant, narrow permissions, approval, denial, revocation, and expiry.
 
+## Staged-authoring rollout checks
+
+Before releasing these instructions, compare the target server's
+`get_agent_builder_guide` and tool schemas with the package:
+
+- `lifecycle.skillSavesAreDrafts` establishes isolated Skill saves;
+  `lifecycle.agentPresentationVersioned` establishes staged presentation edits.
+  Plugin/SDK versions and the public REST authoring feature flag do not prove
+  those MCP capabilities. Missing or unknown support must stop draft-only writes
+  to published Skills, not silently fall back to live edits.
+- Verify explicit `test_agent` revision and Skill-version selection support
+  before offering exact draft Skill previews. Unsupported selections must not
+  be dropped or moved into business input.
+- In an authorized release-test workspace, confirm a Skill save leaves its
+  published package live, publication promotes only the approved version, and
+  admitted snapshot-backed runs retain their selection. Check conflicts and
+  ambiguous responses without bypassing guards or issuing blind new-key writes.
+  Live previews and publication tests need their own explicit authorization.
+- Confirm SDK distribution availability before directing users to install it.
+  Examples are optional, and the plugin remains an OAuth-hosted MCP client.
+
+These repository changes do not deploy the backend, enable REST authoring,
+publish the SDK, or update installed plugins. Keep version bumps and release
+tags as separate reviewed release steps. Sync the reviewed shared instructions
+into the beta repository, inspect the QA identity/endpoint transform, and run
+its validators before a separate beta release.
+
 ## Automated GitHub release
 
 The tag must exactly match the version shared by `package.json`, both plugin
