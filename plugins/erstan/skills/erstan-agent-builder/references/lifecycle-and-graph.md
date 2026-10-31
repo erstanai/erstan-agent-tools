@@ -56,6 +56,15 @@ content nor authorizes publication.
 
 ## Graph construction
 
+- Default to one AI Assistant with tools and relevant Skills for conversations
+  and ordinary automations. Connector capabilities normally attach to that
+  Assistant; do not create one node per connector action. Tool-level approval
+  works inside it. Separate business review, deterministic preparation/claims,
+  and durable per-item execution remain explicit when required.
+- Keep existing approvals, exact approved arguments, record-version checks,
+  stable business identities, and uncertain-write reconciliation. A prose Skill
+  does not replace deterministic enforcement. Prefer a source collection picker
+  and ordinary For Each before introducing Code for custom transformation.
 - Use `get_agent_node_catalog` for node types, fields, required values, enums,
   aliases, triggers, action types, and limits.
 - Use unique, non-empty node and edge IDs. Every edge must reference submitted

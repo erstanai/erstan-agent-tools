@@ -8,6 +8,16 @@ description: "Create, revise, validate, test, and publish Erstan Agent graphs th
 Build against the live Erstan authoring contract. Treat creation, update,
 testing, and publication as separate lifecycle actions.
 
+For conversations and ordinary automations, start with one AI Assistant
+(`agent`) plus its trigger. A terminal Assistant does not need an End node.
+Attach the required tools and a few relevant
+existing Skills. The Assistant can look up, reason, ask questions, execute
+approved tools, and report within its responsibility. Add a step only for an
+independent handoff, a distinct human review stage, deterministic execution,
+durable per-item work, or a separate responsibility. Explain extra steps in
+business terms. One main AI step is a design target, not a hard graph limit.
+Preserve existing architecture unless restructuring is part of the request.
+
 ## Reference
 
 Read [lifecycle and graph rules](references/lifecycle-and-graph.md) before
