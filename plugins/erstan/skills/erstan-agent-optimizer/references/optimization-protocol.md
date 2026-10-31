@@ -34,6 +34,15 @@ Skill rule into the Agent simply because the Agent is easier to edit.
 
 ## Candidate requirements
 
+For an authorized simplification, prefer one AI Assistant with the needed tools
+and relevant Skills per responsibility. Do not split reasoning, lookup, approved
+tool execution, and reporting merely because a connector can write. Add or retain
+steps for independent handoffs, distinct human review, deterministic execution,
+durable per-item work, or separate responsibilities. Do not merge existing steps
+without evidence that their approval, preparation/claim, record-version, replay,
+and reconciliation contracts remain equivalent. A node label alone does not
+establish a read-only boundary. Node count is a design measure, not correctness.
+
 For every proposed change record:
 
 - Agent node and field path;
